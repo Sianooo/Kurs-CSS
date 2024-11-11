@@ -1,0 +1,7 @@
+touch => tworzy pliki
+del => usuwa pliki 
+copy => kopiuje pliki
+move => przenosi pliki
+dir => wyswietla wszystkie pliki w komputerze
+cd => wchodenie do pliku
+cd .. => wychodzenie z pliku (..) to oznaczja zawsze wyjscie
