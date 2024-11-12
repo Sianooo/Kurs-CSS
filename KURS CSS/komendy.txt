@@ -5,3 +5,5 @@ move => przenosi pliki
 dir => wyswietla wszystkie pliki w komputerze
 cd => wchodenie do pliku
 cd .. => wychodzenie z pliku (..) to oznaczja zawsze wyjscie
+npm run compile:sass=> uruchamia kompilator sass
+live-server=> uruchamia live serwer dla naszego pliku
