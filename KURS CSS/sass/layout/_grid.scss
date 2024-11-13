@@ -1,0 +1,10 @@
+.row {
+    display: flex;
+    justify-content: space-between; /* Rozkłada elementy równomiernie */
+}
+
+.col-1-of-2 {
+    width: calc((100% - 6rem) / 2);
+    background-color: orangered;
+    display: inline-block;
+}
