@@ -1,0 +1,101 @@
+/* .row - kontener dla elementów */
+.row {
+    display: flex;
+    gap: 3rem; /* Odstęp między kartami */
+    flex-wrap: wrap;
+    justify-content: space-around; /* Rozdzielenie kart na całej szerokości */
+    margin: 0 auto; /* Wyśrodkowanie kontenera */
+    padding: 2rem; /* Padding dla lepszej organizacji przestrzeni */
+  }
+  
+  /* Kolumna, w której zawierają się karty */
+  .col-1-of-4 {
+    flex: 1 1 22%; /* Karty zajmują 22% szerokości kontenera */
+    max-width: 22%;
+    box-sizing: border-box;
+    margin-bottom: 3rem; /* Odstęp między kartami */
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie kart w poziomie */
+    align-items: center; /* Wyśrodkowanie kart w pionie */
+  }
+  
+  /* Karta */
+  .card {
+    perspective: 150rem;
+    position: relative;
+    height: 60rem; /* Wysokość karty */
+    width: 100%; /* Szerokość karty na 100% kolumny */
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie karty */
+    align-items: center; /* Wyśrodkowanie karty */
+    margin-bottom: 3rem; /* Zapewnia odstępy między kartami */
+  }
+  
+  /* Strona karty */
+  .card__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: all 0.8s ease;
+  }
+  
+  .card__side--front,
+  .card__side--back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: white;
+  }
+  
+  .card__side--back {
+    transform: rotateY(180deg);
+  }
+  
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg);
+  }
+  
+  .card:hover .card__side--back {
+    transform: rotateY(0);
+  }
+  
+  /* Kolory frontu kart - ustawienie kolorów */
+  .card--purple .card__side--front {
+    background-color: #9b59b6; /* Fioletowy */
+  }
+  
+  .card--blue-dark .card__side--front {
+    background-color: #2980b9; /* Ciemny niebieski */
+  }
+  
+  .card--blue-light .card__side--front {
+    background-color: #5dade2; /* Jasny niebieski */
+  }
+  
+  /* Kolory tylnej strony kart */
+  .card--purple .card__side--back {
+    background-color: #8e44ad; /* Ciemniejszy fioletowy */
+  }
+  
+  .card--blue-dark .card__side--back {
+    background-color: #1abc9c; /* Zielonkawy niebieski */
+  }
+  
+  .card--blue-light .card__side--back {
+    background-color: #3498db; /* Ciemniejszy niebieski */
+  }
+  
+  /* Ustawienia obrazka w tle karty */
+  .card__picture {
+    background-size: cover;
+    background-position: center;
+    height: 30rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  

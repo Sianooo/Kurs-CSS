@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -49,18 +50,17 @@ html {
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  /* font-size: 16px; */
   line-height: 1.7;
-  color: #777;
+  color: #777; /* Szary kolor tekstu */
   padding: 3rem;
   box-sizing: border-box;
 }
 
 .heading-primary {
-  color: #fff;
+  color: #ffffff; /* Biały kolor dla nagłówków */
   text-transform: uppercase;
   margin-bottom: 6rem;
-  backface-visibility: hidden; /*usuwa trzesienie sie animacji*/
+  backface-visibility: hidden; /* usuwa trzęsienie się animacji */
 }
 .heading-primary--main {
   display: block;
@@ -82,7 +82,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, #55c57a, #28b485);
+  background-image: linear-gradient(to right, #3498db, #2c3e50); /* Gradient od jasnoniebieskiego (#3498db) do ciemnego granatu (#2c3e50) */
   -webkit-background-clip: text;
   color: transparent;
   transition: all 0.2s;
@@ -90,17 +90,17 @@ body {
 }
 .heading-secondary:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
-  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); /* Cień czarny z przezroczystością */
 }
 
 .heading-tertiary {
-  font-size: 1.6rem;
+  font-size: 1.6rem; /* Przyjąłem standardowy rozmiar czcionki, możesz dostosować */
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .paragraph {
-  font-size: 1.6rem;
+  font-size: 1.6rem; /* Przyjęty rozmiar czcionki, taki jak w heading-tertiary */
 }
 .paragraph:not(:last-child) {
   margin-bottom: 3rem;
@@ -130,11 +130,11 @@ body {
   border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
-  font-size: 1.6rem;
+  font-size: 1.6rem; /* Domyślny rozmiar czcionki, jak wcześniej ustaliliśmy */
 }
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Cień czarny z przezroczystością */
 }
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
@@ -142,14 +142,14 @@ body {
 }
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /* Cień czarny z przezroczystością */
 }
 .btn--white {
-  background-color: #fff;
-  color: #777;
+  background-color: #ffffff; /* Białe tło dla przycisku */
+  color: #7f8c8d; /* Ciemnoszary kolor tekstu */
 }
 .btn--white::after {
-  background-color: #fff;
+  background-color: #ffffff; /* Białe tło dla pseudoelementu */
 }
 .btn::after {
   content: "";
@@ -169,63 +169,216 @@ body {
 }
 
 .btn-text:link, .btn-text:visited {
-  font-size: 1.6rem;
-  color: #7ed56f;
+  font-size: 1.6rem; /* Domyślny rozmiar czcionki */
+  color: #3498db; /* Jasnoniebieski kolor dla $color-primary */
   display: inline-block;
   text-decoration: none;
-  border-bottom: 1px solid #7ed56f;
+  border-bottom: 1px solid #3498db; /* Podkreślenie z jasnoniebieskim kolorem */
   padding: 3px;
   transition: all 0.2s;
 }
 .btn-text:hover {
-  background-color: #7ed56f;
-  color: #fff;
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  background-color: #3498db; /* Jasnoniebieski kolor tła */
+  color: #ffffff; /* Biały kolor tekstu */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); /* Cień czarny z przezroczystością */
   transform: translateY(-2px);
 }
 .btn-text:active {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Cień czarny z przezroczystością */
   transform: translateY(0);
 }
 
 .composition {
+  display: flex;
+  justify-content: space-between; /* Rozdzielamy tekst i zdjęcia */
+  align-items: flex-start; /* Wyrównanie do góry, aby zdjęcia były na równi z tekstem */
   position: relative;
+  gap: 2rem; /* Odstęp między tekstem a zdjęciami */
+  /* Zdjęcia */
+}
+.composition__text-box {
+  flex: 1; /* Tekst zajmuje resztę dostępnej przestrzeni */
+  text-align: left; /* Tekst wyśrodkowany w obrębie boxu, ale można zmienić */
 }
 .composition__photo {
-  position: absolute;
-  width: 35%;
+  position: relative; /* Usuwamy position absolute, aby zdjęcia były w normalnym przepływie dokumentu */
+  width: 30%; /* Dopasowanie szerokości zdjęć */
   height: 35rem;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4); /* Cień czarny z przezroczystością */
   border-radius: 2px;
-  z-index: 10;
-  transition: all 0.2;
+  transition: all 0.2s;
   outline-offset: 2rem;
 }
+.composition__photo:hover {
+  outline: 1.5rem solid #3498db; /* Jasnoniebieski kolor dla $color-primary */
+  transform: scale(1.1);
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.4); /* Cień czarny z przezroczystością */
+}
 .composition__photo--p1 {
-  left: 40rem;
-  top: -2rem;
+  order: 1; /* Ustawienie pierwszego zdjęcia w odpowiedniej kolejności */
 }
 .composition__photo--p2 {
-  right: 25rem;
-  top: 3rem;
+  order: 2; /* Ustawienie drugiego zdjęcia w odpowiedniej kolejności */
 }
 .composition__photo--p3 {
-  left: 30%;
-  top: 20rem;
-}
-.composition__photo:hover {
-  outline: 1.5rem solid #7ed56f;
-  transform: scale(1.1);
-  box-shadow: 0 2.5rem 4 rme rgba(0, 0, 0, 0.4);
-  z-index: 20;
+  order: 3; /* Ustawienie trzeciego zdjęcia w odpowiedniej kolejności */
 }
 .composition:hover .composition__photo:not(:hover) {
-  transform: scale(0.9);
+  transform: scale(0.9); /* Zmniejszamy zdjęcia niebędące w trakcie hover */
+}
+
+/* Feature Box Container */
+.section-features {
+  padding: 6rem 0;
+}
+
+/* Styling for each feature box */
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: all 0.3s;
+}
+
+.feature-box__icon {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  background-image: linear-gradient(to right, #3498db, #2c3e50);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.feature-box__text {
+  color: #7f8c8d;
+}
+
+.feature-box:hover {
+  transform: translateY(-1.5rem) scale(1.03);
+}
+
+/* Media queries for responsiveness */
+/* Medium screens: 2 boxes in a row */
+@media (max-width: 768px) {
+  .col-1-of-4 {
+    flex: 1 1 48%; /* 2 boxes per row */
+    max-width: 48%;
+  }
+}
+/* Small screens: 1 box in a row */
+@media (max-width: 480px) {
+  .col-1-of-4 {
+    flex: 1 1 100%; /* 1 box per row */
+    max-width: 100%;
+  }
+}
+/* .row - kontener dla elementów */
+.row {
+  display: flex;
+  gap: 3rem; /* Odstęp między kartami */
+  flex-wrap: wrap;
+  justify-content: space-around; /* Rozdzielenie kart na całej szerokości */
+  margin: 0 auto; /* Wyśrodkowanie kontenera */
+  padding: 2rem; /* Padding dla lepszej organizacji przestrzeni */
+}
+
+/* Kolumna, w której zawierają się karty */
+.col-1-of-4 {
+  flex: 1 1 22%; /* Karty zajmują 22% szerokości kontenera */
+  max-width: 22%;
+  box-sizing: border-box;
+  margin-bottom: 3rem; /* Odstęp między kartami */
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie kart w poziomie */
+  align-items: center; /* Wyśrodkowanie kart w pionie */
+}
+
+/* Karta */
+.card {
+  perspective: 150rem;
+  position: relative;
+  height: 60rem; /* Wysokość karty */
+  width: 100%; /* Szerokość karty na 100% kolumny */
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie karty */
+  align-items: center; /* Wyśrodkowanie karty */
+  margin-bottom: 3rem; /* Zapewnia odstępy między kartami */
+}
+
+/* Strona karty */
+.card__side {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: all 0.8s ease;
+}
+
+.card__side--front,
+.card__side--back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.card__side--back {
+  transform: rotateY(180deg);
+}
+
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+
+/* Kolory frontu kart - ustawienie kolorów */
+.card--purple .card__side--front {
+  background-color: #9b59b6; /* Fioletowy */
+}
+
+.card--blue-dark .card__side--front {
+  background-color: #2980b9; /* Ciemny niebieski */
+}
+
+.card--blue-light .card__side--front {
+  background-color: #5dade2; /* Jasny niebieski */
+}
+
+/* Kolory tylnej strony kart */
+.card--purple .card__side--back {
+  background-color: #8e44ad; /* Ciemniejszy fioletowy */
+}
+
+.card--blue-dark .card__side--back {
+  background-color: #1abc9c; /* Zielonkawy niebieski */
+}
+
+.card--blue-light .card__side--back {
+  background-color: #3498db; /* Ciemniejszy niebieski */
+}
+
+/* Ustawienia obrazka w tle karty */
+.card__picture {
+  background-size: cover;
+  background-position: center;
+  height: 30rem;
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.8)), url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
@@ -247,10 +400,61 @@ body {
   height: 3.5rem;
 }
 
+.row {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-right: -1.5rem;
+  margin-left: -1.5rem;
+  padding: 10rem;
+}
+
+.col-1-of-4 {
+  flex: 1 1 22%; /* 4 boxes in a row */
+  max-width: 22%;
+  box-sizing: border-box;
+}
+
+.col-1-of-2 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  box-sizing: border-box;
+}
+.col-1-of-2 .composition {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.col-1-of-2 .composition .composition__photo {
+  flex: 1;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .section-about {
-  background-color: #f7f7f7;
+  background-color: #f0f0f0; /* Jasnoszary kolor tła */
   padding: 25rem 0;
   margin-top: -20vh;
+}
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.8)), url(../img/nat-4.jpg);
+  background-size: cover;
+  transform: skewY(-7deg);
+}
+.section-features > * {
+  transform: skewY(7deg);
+}
+
+.section-tours {
+  background-color: #f0f0f0; /* Jasnoszary kolor tła */
+  padding: 25rem 0;
+  margin-top: 10rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
-.btn{
+.btn {
     &:link,
-    &:visited{
+    &:visited {
         text-transform: uppercase;
         text-decoration: none;
         padding: 1.5rem 4rem;
@@ -8,33 +8,37 @@
         border-radius: 10rem;
         transition: all .2s;
         position: relative;
-        font-size: $defaul-font-size;
+        font-size: 1.6rem; /* Domyślny rozmiar czcionki, jak wcześniej ustaliliśmy */
     }
-    &:hover{
+
+    &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-    
-        &::after{
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Cień czarny z przezroczystością */
+
+        &::after {
             transform: scaleX(1.4) scaleY(1.6);
             opacity: 0;
         }
     }
-    &:active{
+
+    &:active {
         transform: translateY(-1px);
-        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2); /* Cień czarny z przezroczystością */
     }
-    &--white{
-        background-color: $color-white;
-        color: $color-grey-dark;
-        &::after{
-            background-color: $color-white;
+
+    &--white {
+        background-color: #ffffff; /* Białe tło dla przycisku */
+        color: #7f8c8d; /* Ciemnoszary kolor tekstu */
+
+        &::after {
+            background-color: #ffffff; /* Białe tło dla pseudoelementu */
         }
     }
-    
-    &::after{
+
+    &::after {
         content: "";
         display: inline-block;
-        height: 100%;    
+        height: 100%;
         width: 100%;
         border-radius: 10rem;
         position: absolute;
@@ -43,31 +47,34 @@
         z-index: -1;
         transition: all .4s;
     }
-    &--aminated{
+
+    &--aminated {
         animation: moveInBottom .5s ease-out .75s;
         animation-fill-mode: backwards;
     }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: 1.6rem; /* Domyślny rozmiar czcionki */
+        color: #3498db; /* Jasnoniebieski kolor dla $color-primary */
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid #3498db; /* Podkreślenie z jasnoniebieskim kolorem */
+        padding: 3px;
+        transition: all .2s;
     }
 
-    .btn-text{
-        &:link,
-        &:visited{
-            font-size: $defaul-font-size;
-            color: $color-primary;
-            display: inline-block;
-            text-decoration: none;
-            border-bottom: 1px solid $color-primary;// podkreslenie pod przyciskiem
-            padding: 3px;
-            transition: all .2s;
-        }
-        &:hover{
-            background-color: $color-primary;
-            color: $color-white;
-            box-shadow: 0 1rem 2rem rgba($color-black, .15);
-            transform: translateY(-2px);
-        }
-        &:active{
-            box-shadow: 0 .5rem 1rem rgba($color-black, .15);
-            transform: translateY(0);
-        }
+    &:hover {
+        background-color: #3498db; /* Jasnoniebieski kolor tła */
+        color: #ffffff; /* Biały kolor tekstu */
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, .15); /* Cień czarny z przezroczystością */
+        transform: translateY(-2px);
     }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15); /* Cień czarny z przezroczystością */
+        transform: translateY(0);
+    }
+}

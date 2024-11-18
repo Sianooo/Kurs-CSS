@@ -1,36 +1,46 @@
-.composition{
+.composition {
+    display: flex;
+    justify-content: space-between; /* Rozdzielamy tekst i zdjęcia */
+    align-items: flex-start; /* Wyrównanie do góry, aby zdjęcia były na równi z tekstem */
     position: relative;
-    &__photo{
-        position: absolute;
-        width: 35%;
+    gap: 2rem; /* Odstęp między tekstem a zdjęciami */
+
+    &__text-box {
+        flex: 1; /* Tekst zajmuje resztę dostępnej przestrzeni */
+        text-align: left; /* Tekst wyśrodkowany w obrębie boxu, ale można zmienić */
+    }
+
+    &__photo {
+        position: relative; /* Usuwamy position absolute, aby zdjęcia były w normalnym przepływie dokumentu */
+        width: 30%; /* Dopasowanie szerokości zdjęć */
         height: 35rem;
-        box-shadow: 0 1.5rem 4rem rgba($color-black,0.4);
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4); /* Cień czarny z przezroczystością */
         border-radius: 2px;
-        z-index: 10;
-        transition: all .2;
+        transition: all .2s;
         outline-offset: 2rem;
 
-
-        &--p1{
-            left:40rem;
-            top:-2rem;
-        }
-        &--p2{
-            right:25rem;
-            top:3rem;
-        }
-        &--p3{
-            left:30%;
-            top:20rem;
-        }
-        &:hover{
-            outline: 1.5rem solid $color-primary;
+        &:hover {
+            outline: 1.5rem solid #3498db; /* Jasnoniebieski kolor dla $color-primary */
             transform: scale(1.1);
-            box-shadow: 0 2.5rem 4 rme rgba($color-black,0.4);
-            z-index: 20;
+            box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.4); /* Cień czarny z przezroczystością */
         }
     }
-    &:hover &__photo:not(:hover){
-        transform: scale(.9); 
+
+    /* Zdjęcia */
+    &__photo--p1 {
+        order: 1; /* Ustawienie pierwszego zdjęcia w odpowiedniej kolejności */
+    }
+
+    &__photo--p2 {
+        order: 2; /* Ustawienie drugiego zdjęcia w odpowiedniej kolejności */
+    }
+
+    &__photo--p3 {
+        order: 3; /* Ustawienie trzeciego zdjęcia w odpowiedniej kolejności */
+    }
+
+    &:hover &__photo:not(:hover) {
+        transform: scale(0.9); /* Zmniejszamy zdjęcia niebędące w trakcie hover */
     }
 }
+

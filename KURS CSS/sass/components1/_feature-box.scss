@@ -1,0 +1,50 @@
+/* Feature Box Container */
+.section-features {
+    padding: 6rem 0;
+    
+}
+/* Styling for each feature box */
+.feature-box {
+    background-color: rgba(#ffffff, 0.8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(#000000, 0.15);
+    transition: all 0.3s;
+}
+
+.feature-box__icon {
+    font-size: 6rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #3498db, #2c3e50);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.feature-box__text {
+    color: #7f8c8d;
+}
+
+.feature-box:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+}
+
+/* Media queries for responsiveness */
+
+/* Medium screens: 2 boxes in a row */
+@media (max-width: 768px) {
+    .col-1-of-4 {
+        flex: 1 1 48%;  /* 2 boxes per row */
+        max-width: 48%;
+    }
+}
+
+/* Small screens: 1 box in a row */
+@media (max-width: 480px) {
+    .col-1-of-4 {
+        flex: 1 1 100%; /* 1 box per row */
+        max-width: 100%;
+    }
+}
