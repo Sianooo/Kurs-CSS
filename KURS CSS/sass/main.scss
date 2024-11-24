@@ -1,20 +1,104 @@
-@use "abstracts/variables" as *;
-@use "abstracts/functions" as *;
-@use "abstracts/mixins" as *;
-
+@use 'abstracts/mixins' as *;
+@use "abstracts/variables";
 @use "base/animations";
 @use "base/base";
 @use "base/typography";
 @use "base/utilities";
-
 @use "components1/button";
 @use "components1/composition";
 @use "components1/feature-box";
 @use "components1/card";
 @use "components1/story";
 @use "components1/bg-video";
-
+@use "components1/form";
 @use "layout/header";
 @use "layout/grid";
-
+@use "layout/footer";
+@use "layout/navigation";
 @use "pages/home";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  // Example of using a mixin inside html block (correct usage):
+  @include clearFix;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(phone) {
+    font-size: 30%;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+// Define the mixins outside of any selector blocks
+
+@mixin clearFix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;  
+  transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER
+
+@mixin respond-phone {
+  @media (max-width: 600px) { 
+    @content; 
+  }  
+}
+
+
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5rem) { 
+      @content; 
+    }
+  }
+  @else if $breakpoint == tab-port {
+    @media (max-width: 56.25rem) { 
+      @content; 
+    }
+  }
+  @else if $breakpoint == tab-land {
+    @media (max-width: 75rem) { 
+      @content; 
+    }
+  }
+  @else if $breakpoint == big-desktop {
+    @media (min-width: 112.5rem) { 
+      @content; 
+    }
+  }
+}

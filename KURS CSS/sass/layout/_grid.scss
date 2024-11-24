@@ -1,40 +1,113 @@
-// grid.scss
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5rem) { 
+      @content; 
+    }
+  }
+  @else if $breakpoint == tab-port {
+    @media (max-width: 56.25rem) { 
+      @content; 
+    }
+  }
+  @else if $breakpoint == tab-land {
+    @media (max-width: 75rem) { 
+      @content; 
+    }
+  }
+  @else if $breakpoint == big-desktop {
+    @media (min-width: 112.5rem) { 
+      @content; 
+    }
+  }
+}
 
+@mixin clearFix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+// Styl dla wiersza
 .row {
-  width: auto;
   display: flex;
-  gap: 3rem;
+  gap: 2rem; /* Odstęp między kolumnami */
   flex-wrap: wrap;
-  margin-right: -1.5rem;
-  margin-left: -1.5rem;
-  // .row > .col-1-of-2
-  padding: 10rem;  // Dodany padding dla lepszej organizacji przestrzeni
+  justify-content: center; /* Wyśrodkowanie elementów */
+  padding: 2rem;
+
+  @include respond(tab-port) {
+    margin-bottom: 6rem;
+    gap: 1.5rem; /* Zmniejszenie odstępów na mniejszych ekranach */
+  }
+
+  @include respond(phone) {
+    padding: 1rem;
+    gap: 1rem; /* Jeszcze mniejsze odstępy na telefonach */
+  }
+
+  @include clearFix;
 }
+
+// Styl dla kolumny 1/4
 .col-1-of-4 {
-  flex: 1 1 22%; /* 4 boxes in a row */
+  flex: 1 1 22%; /* Zachowanie szerokości kolumny */
   max-width: 22%;
-  box-sizing: border-box;
-  
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie kart w poziomie */
+  align-items: center; /* Wyśrodkowanie kart w pionie */
+
+  @include respond(tab-port) {
+    flex: 1 1 45%; /* Dwie kolumny na tablecie w trybie portretowym */
+    max-width: 45%;
+  }
+
+  @include respond(phone) {
+    flex: 1 1 100%; /* Jedna kolumna na telefonach */
+    max-width: 100%;
+  }
 }
+
+// Styl dla kolumny 1/2
 .col-1-of-2 {
-  // margin-left: 5rem;
   flex: 0 0 50%;
   max-width: 50%;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
   box-sizing: border-box;
 
+  @include respond(tab-port) {
+    flex: 1 1 100%; /* Kolumna zajmuje całą szerokość w trybie portretowym na tablecie */
+    max-width: 100%;
+    padding: 1rem; /* Zmniejszenie paddingu */
+  }
+
   .composition {
     display: flex;
-    gap: 1rem; // Odstępy między zdjęciami
+    gap: 1rem; /* Odstępy między zdjęciami */
     justify-content: center;
     align-items: center;
+
+    @include respond(phone) {
+      flex-direction: column; /* Zdjęcia w kolumnie na telefonach */
+      gap: 0.5rem; /* Zmniejszenie odstępów */
+    }
 
     .composition__photo {
       flex: 1;
       max-width: 100%;
       height: auto;
       object-fit: cover;
+
+      @include respond(tab-port) {
+        max-width: 90%; /* Zmniejszenie maksymalnej szerokości zdjęcia na tabletach */
+      }
+
+      @include respond(phone) {
+        max-width: 100%; /* Zdjęcia na pełną szerokość na telefonach */
+      }
     }
   }
 }
