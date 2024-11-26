@@ -51,27 +51,6 @@ $breakpoint argument choices:
     transform: translate(0);
   }
 }
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  box-sizing: border-box;
-}
-
-::selection {
-  background-color: #FF69B4;
-  color: #fff;
-}
-
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -939,4 +918,4 @@ body {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.comp.css.map */
