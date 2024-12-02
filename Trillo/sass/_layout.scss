@@ -5,6 +5,12 @@
     box-shadow: var(--shalow-dark);
 
     min-height: 50rem;
+
+    @media only screen and (max-width: 1200px){
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 .header{
@@ -19,6 +25,10 @@
 
 .content{
     display: flex;
+
+    @media only screen and (max-width: 56.25em){
+        flex-direction: column;
+    }
 
 }
 
@@ -36,20 +46,40 @@
     // height: 80rem;
 }
 .detail{
+    font-size: 1.4rem;
     display: flex;
     padding: 4.5rem;
     background-color: var(--grey-light-1);
     border-bottom: var(--line) ;
+
+    @media only screen and (max-width: 37.5em){
+        padding:3rem;
+    }
+
+    @media only screen and (max-width: 56.25em){
+        flex-direction: column;
+    }
 }
 .description{
-    font-size: 1.4rem;
     background-color: #fff;
     flex: 0 0 60%;
     box-shadow: var(--shalow-light);
     padding: 3rem;
     margin-right: 4.5rem;
+
+    @media only screen and (max-width: 37.5em){
+        padding: 2rem;
+        margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: 56.25em){
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
 }
 .user-reviews{
-    background-color: yellowgreen;
     flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
