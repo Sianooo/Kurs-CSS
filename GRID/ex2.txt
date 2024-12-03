@@ -1,0 +1,68 @@
+HTML:
+
+<div class="chellange">
+  <div class="header">header</div>
+   <div class="box box--1">Small box 1</div>
+   <div class="box box--2">Small box 2</div>
+   <div class="box box--3">Small box 3</div>
+    <div class="sidebar">sidebar</div>
+    <div class="main">main content</div>
+    <div class="footer">footer</div>
+</div>
+
+CSS:
+
+html{
+  font-size:20px;
+  font-family:sans-serif;
+}
+.chellange{
+  display:grid;
+  margin: 20px auto;
+  background-color:white;
+  width:600px;
+    
+    grid-template-rows: repeat(4,150px) 4fr;
+    grid-template-columns:repeat(4,150px) 4fr;
+  
+  grid-gap:20px;
+}
+.header{
+  grid-row:1/2;
+  grid-column:1/5;
+  background-color:yellow;
+  padding:20px;
+}
+.box{
+  &--1{
+     grid-row:2/3;
+    grid-column:1/2;
+      background-color:pink;
+  }
+    &--2{
+    grid-row:2/3;
+    grid-column:2/3;
+    background-color:brown;
+  }
+    &--3{
+    grid-row:2/3;
+    grid-column:3/4;
+    background-color:green;
+  }
+}
+.sidebar{
+  grid-row:2/4;
+  grid-column:4/5;
+  background-color:purple;
+}
+.main{
+  grid-row:3/4;
+  grid-column:1/4;
+  background-color:blue;
+}
+.footer{
+  grid-row:4/5;
+    grid-column:1/5;
+  background-color:orange;
+}
+
