@@ -1,0 +1,71 @@
+HTML:
+
+<div class="container">
+  <div class="item item--1">Modern</div>
+  <div class="item item--2">CSS</div>
+  <div class="item item--3">with</div>
+  <div class="item item--4">Flexbox</div>
+  <div class="item item--5">and</div>
+  <div class="item item--6">Grid</div>
+  <div class="item item--7">is</div>
+  <div class="item item--8">Great</div>
+</div>
+
+CSS:
+
+.container{
+  width:1000px;
+  margin:30px auto;
+  background-color:#ddd;
+  display:grid;
+  
+  //grid-template-rows:repeat(2,150px);
+  //grid-template-columns:repeat(2,2fr);
+  grid-gap:20px;
+  
+  grid-auto-rows:80px;
+  grid-auto-flow:row dense;//dense zapelnia dziury w siatce
+  grid-auto-columns: .5fr;
+  
+  //Align grid items to grid areas
+  
+  //align-items:center;//center/stretch/end/start
+  //justify-items:center;//same options
+  
+  //Align grid tracks to grid container
+  grid-template-columns:repeat(2,200px);
+  grid-template-rows:repeat(2,100px);
+  height:1000px;
+  
+  justify-content:center;//center/end/start/space-between/space-around/space-evenly
+  align-content:center;//same options
+  
+  
+  /*Niezadeklarowana siatka:*/
+    grid-auto-row:80px;
+  
+  .item{
+    padding:20px;
+    color:white;
+    font-family:sans-serif;
+    font-size:30px;
+    background-color:orange;
+    
+    &--4 {
+    background-color: pink;
+    grid-row: 2 / span 3;
+    //align-self:start;
+    //justify-self:start;
+    }
+    
+    &--6{
+      background-color:lightcoral;
+      grid-row:2/span 2;
+    }
+    
+    &--7{
+      background-color:purple;
+      grid-column:1/-1;
+    }
+  }
+}
