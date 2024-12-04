@@ -1,0 +1,9 @@
+.header{
+    background-color:  #f0f0f0;
+    grid-column: full-start / col-end 6;
+    background-image: linear-gradient(rgba(#101d2c, .93), rgba(#101d2c, .93)), url(../img/hero.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding: 8rem;
+    padding-top: 4rem;
+}
