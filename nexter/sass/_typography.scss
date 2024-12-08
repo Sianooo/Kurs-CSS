@@ -4,6 +4,9 @@
 }
 .heading-1{
     @extend %heading;
+    font-size: 4rem;
+    color: #f9f7f6;
+    line-height: 1;
 }
 
 .heading-2{
